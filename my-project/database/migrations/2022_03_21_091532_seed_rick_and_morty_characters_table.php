@@ -6,6 +6,7 @@ use App\Services\RickAndMortyService;
 use App\Models\Character;
 use App\Models\Origin;
 use App\Models\Location;
+use App\Models\Episode;
 return new class extends Migration
 {
     /**
@@ -20,6 +21,7 @@ return new class extends Migration
         $page = 1;
         $totalPages = $characters->getCharacters($page) ? $characters->getCharacters($page)->info->pages : null;
             foreach ($characters->getCharacters($page)->results as $character) {
+                // seed Characters table
                 $characterModel = new Character();
                 $characterModel->id = $character->id;
                 $characterModel->name = $character->name;
@@ -31,6 +33,7 @@ return new class extends Migration
                 $characterModel->url = $character->url;
                 $characterModel->created = Carbon::create($character->created);
                 $characterModel->save();
+                
                 // seed Origins table
                 $origin = new Origin();
                 $origin->id = $page;
@@ -38,18 +41,17 @@ return new class extends Migration
                 $origin->name = $character->origin->name;
                 $origin->url = $character->origin->url;
                 $origin->save();
+                
+                // seed Locations table
                 $location = new Location();
                 $location->character_id = $character->id;
                 $location->name = $character->location->name;
                 $location->url = $character->location->url;
                 $location->save();
 
-//                foreach ($character->location as $key => $location) {
-//                }
-
                 //seed Episodes Table
                 foreach ($character->episode as $key => $value) {
-                    $episode = new \App\Models\Episode();
+                    $episode = new Episode();
                     $episode->character_id = $character->id;
                     $episode->url = $value;
                     $episode->save();
