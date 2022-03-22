@@ -1,0 +1,37 @@
+type Query {
+    characters(name: String! ): [Character!]! @field(resolver: "CharacterQuery@find")
+    episodes(character_id: String! ): [Episodes!]! @field(resolver: "CharacterQuery@episodes")
+    origin(character_id: String! ): [Origin!]! @field(resolver: "CharacterQuery@origins")
+    location(character_id: String! ): [Location!]! @field(resolver: "CharacterQuery@locations")
+}
+
+type Character {
+    id: ID!
+    name: String!
+    status:	String!
+    species: String!
+    type:	String!
+    gender:	String!
+    origin:	Origin!
+    location: Location!
+    image: String!
+    episode: [Episodes]!
+    url: String!
+    created: String!
+}
+#
+type Episodes {
+    name: String
+    url: String
+    character_id: String
+}
+type Origin {
+    name: String
+    url: String
+    character_id: String
+}
+type Location {
+    name: String
+    url: String
+    character_id: String
+}
