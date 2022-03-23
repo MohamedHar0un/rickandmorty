@@ -44,7 +44,7 @@
 
 
 ## You might encounter an error running the machine
-- please install composer from <a href="https://getcomposer.org/">Here</>
+- please install composer from <a href="https://getcomposer.org/">Here</a>
 - navigate to my_project directory 
 - run [composer update --ignore-platform-req=ext-curl]
 - then run [docker-compose up -d] 
