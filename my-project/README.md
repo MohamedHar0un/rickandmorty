@@ -30,3 +30,9 @@
 
 ## GraphQL query (eg: search rick)
 <a target="_blank" href="http://localhost:8000/graphql?query={characters(name:%22rick%22){id,name,status,origin{url,name}location{url,name}%20image,episode{url}url,created}}">Search Rick</a>
+
+## You might encounter an error running the machine
+- please install composer from <a href="https://getcomposer.org/">Here</>
+- navigate to my_project directory 
+- run [composer update --ignore-platform-req=ext-curl]
+- then run [docker-compose up -d] 
