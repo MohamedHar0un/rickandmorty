@@ -45,9 +45,9 @@
 
 ## You might encounter an error running the machine
 - please install composer from <a href="https://getcomposer.org/">Here</a>
-- navigate to my_project directory 
+- navigate to rickandmorty/my_project directory 
 - run [composer update --ignore-platform-req=ext-curl]
-- go back to the project directory where you have docker-compose.yml file and run [docker-compose up -d] 
+- go back to rickandmorty/ directory where you have docker-compose.yml file and run [docker-compose up -d] 
 
 
 
