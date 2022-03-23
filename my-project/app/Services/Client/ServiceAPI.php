@@ -5,6 +5,10 @@ namespace App\Services\Client;
 
 class ServiceAPI
 {
+    /**
+     * This service is responsible for building the client for the api you want to call
+     * RickAndMorty or any other service in the future
+    */    
     const Services = ['RickAndMorty' => 'https://rickandmortyapi.com/api', 'OtherServices' => 'https://otherservice.com/api'];
     private $url;
 
@@ -16,7 +20,7 @@ class ServiceAPI
         }
     }
 
-    public function getUrl() {
+    public function getUrl():string {
         return $this->url;
     }
 

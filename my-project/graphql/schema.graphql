@@ -1,4 +1,6 @@
 type Query {
+# Moved the queries to CharacterQuery.php in app/GraphQL/Queries
+# Best case not to name the query schema like database tables but left it like it iis for simplecity
     characters(name: String! ): [Character!]! @field(resolver: "CharacterQuery@find")
     episodes(character_id: String! ): [Episodes!]! @field(resolver: "CharacterQuery@episodes")
     origin(character_id: String! ): [Origin!]! @field(resolver: "CharacterQuery@origins")

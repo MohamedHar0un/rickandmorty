@@ -20,13 +20,26 @@
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 ## Requirements 
-- docker-compose
+- **docker** 
+- **docker-compose**
 
 ## How to run 
 - clone the repository locally
-- run [docker-compose up -d] 
-- run [docker exec rickandmorty_myapp_1 php artisan migrate]
-- navigate to localhost:8000
+- run [**docker-compose up -d**] 
+- run [**docker exec rickandmorty_myapp_1 php artisan migrate**]
+- navigate to <a href="localhost:8000/graphql-playground">Play ground</a> or <a target="_blank" href="http://localhost:8000/graphql?query={characters(name:%22rick%22){id,name,status,origin{url,name}location{url,name}%20image,episode{url}url,created}}">Search Rick</a> example
+## Where to look 
+- for GraphQL schema it will my-project/graphql/schema.graphql
+- for GraphQL database queries my-project/app/GraphQL/Queries/CharacterQuery.php
+- for external api Service to initiate fetch data client my-project/app/Services/Client.php
+- also my-project/app/Services/RickAndMortyService.php to make the api call and get the characters from the api [used in the seed database migration]
+- to look at building the database and seeding it with data  my-project/database/migrations
+## GraphQL query (example: search rick)
+- <a target="_blank" href="http://localhost:8000/graphql?query={characters(name:%22rick%22){id,name,status,origin{url,name}location{url,name}%20image,episode{url}url,created}}">Search Rick</a>
+- Also you can use the play ground <a target="_blank" href="http://localhost:8000/graphql-playground">Here</a>
 
-## GraphQL query (eg: search rick)
-<a target="_blank" href="http://localhost:8000/graphql?query={characters(name:%22rick%22){id,name,status,origin{url,name}location{url,name}%20image,episode{url}url,created}}">Search Rick</a>
+## Notes
+- this solution is build using a library called lighthouse to integrate laravel with graphql
+- i used a library called scout to enable search queries 
+
+
