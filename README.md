@@ -47,7 +47,8 @@
 - please install composer from <a href="https://getcomposer.org/">Here</a>
 - navigate to rickandmorty/my_project directory 
 - run [composer update --ignore-platform-req=ext-curl]
-- go back to rickandmorty/ directory where you have docker-compose.yml file and run [docker-compose up -d] 
+- go back to rickandmorty/ directory where you have docker-compose.yml file and run [docker-compose up -d]
+- navigate to /my_project and run [docker-compose exec myapp php artisan migrate]
 
 
 
